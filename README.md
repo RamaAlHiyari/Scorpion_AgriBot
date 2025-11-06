@@ -1,8 +1,9 @@
 # Scorpion_AgriBot
 Scorpion AgriBot is an Arduino Mega–based rover that autonomously explores crop rows, measures soil moisture via a servo-mounted probe, and avoids obstacles with ultrasonic sensing. Optional ArduCAM captures leaf images, while all readings (time, moisture %, distance, notes, image) are logged as CSV to microSD for offline analysis.
 # Scorpion AgriBot – Soil & Plant Exploration Robot
+<img src="docs/media/scor3.png" alt="Scorpion AgriBot – Hero Image" width="900">
 
-**Robotics | Arduino Mega | 4× DC Motors | Soil Moisture | Ultrasonic | Servo Arm | (Optional) ArduCAM + SD**
+**Robotics | Arduino Mega | 4× DC Motors | Soil Moisture |4× Ultrasonic | Servo Arm | (Optional) ArduCAM + SD**
 
 ## Overview
 Scorpion AgriBot is a mobile agricultural rover designed to explore soil conditions in structured farms and diagnose them via a soil-moisture probe, with support for capturing plant-leaf photos using an ArduCAM/webcam for documentation and later analysis. The system uses an Arduino Mega 2560 to drive four DC motors through L298N drivers, avoids obstacles with an ultrasonic sensor, and uses a servo arm to lower and raise the moisture probe for periodic sampling, logging results to CSV on an SD card.
@@ -20,7 +21,7 @@ Scorpion AgriBot is a mobile agricultural rover designed to explore soil conditi
 - 1× Arduino Mega 2560  
 - 2× L298N (or equivalent 4-channel motor drivers)  
 - 4× DC motors with wheels  
-- 1× HC-SR04 ultrasonic sensor (front)  
+- 1× HC-SR04 ultrasonic sensor (front) or 4x On the sides (optional)
 - 1× Analog soil-moisture probe  
 - 1× SG90/MG90S servo for the probe arm  
 - 1× microSD reader (optional but recommended for logging)  
@@ -48,8 +49,36 @@ Scorpion AgriBot is a mobile agricultural rover designed to explore soil conditi
 - SD: CS → D53 (SPI HW: MISO 50, MOSI 51, SCK 52)  
 - ArduCAM OV2640: CS → D7 (shares SPI)
 
-**Power note:** Power the motors from a separate battery through the L298N and share ground with the Arduino board.
+**Power note:** Power the motors from a separate battery through the L298N and share ground with the Arduino board
 
-## Images
+## Design by Rama Al-Hayari 2022
+
+The chassis was engineered for harsh, real-world conditions. A reinforced, low-slung frame distributes loads away from vulnerable components, while a compliant suspension keeps all wheels planted to preserve traction and stability on uneven ground. Each wheel is an independent corner module with its own spring–link mechanism, allowing the platform to self-level, absorb shocks, and maintain balance over ruts, loose soil, and abrupt step-ups 
+
+Obstacle negotiation is supported mechanically and electronically: the four-motor drivetrain provides precise, differential control at each wheel, and the layout preserves a clear sensor field for reliable obstacle avoidance. The result is a robust mobile base that remains composed under terrain-induced disturbances and continues to track and maneuver with confidence.
+
+**Highlights**
+- Independent 4-wheel modules with compliant suspension for continuous ground contact and self-balancing  
+- Reinforced frame with distributed load paths to withstand shocks and torsion  
+- High ground clearance and controlled wheel travel to traverse obstacles without pitching
+  <img src="docs/media/SCOR2.png" alt="Scorpion AgriBot – Hero Image" width="900"> 
+
+## Demo Video
+
+<video src="scor1.mp4"
+       controls
+       muted
+       playsinline
+       width="900"
+       poster="docs/media/SCOR1.jpeg">
+  Your browser does not support the video tag.
+</video>
+
+[Download MP4](scor1.mp4)
+
+## Media 
+- Google Drive folder: 
 https://drive.google.com/drive/folders/1-yvlwI3CvnW-3ASu3sCr5k0THxUEndf9?usp=sharing
+
+
 
